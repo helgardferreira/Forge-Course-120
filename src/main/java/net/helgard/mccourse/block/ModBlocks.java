@@ -2,7 +2,7 @@ package net.helgard.mccourse.block;
 
 import net.helgard.mccourse.MCCourseMod;
 import net.helgard.mccourse.item.ModItems;
-import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -35,6 +35,54 @@ public class ModBlocks {
             )
     );
 
+    public static final RegistryObject<Block> ALEXANDRITE_ORE = registerBlock(
+            "alexandrite_ore",
+            () -> new DropExperienceBlock(
+                    UniformInt.of(0, 1),
+                    BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.STONE)
+                            .instrument(NoteBlockInstrument.BASEDRUM)
+                            .requiresCorrectToolForDrops()
+                            .strength(3.0F, 3.0F)
+            )
+    );
+
+    public static final RegistryObject<Block> DEEPSLATE_ALEXANDRITE_ORE = registerBlock(
+            "deepslate_alexandrite_ore",
+            () -> new DropExperienceBlock(
+                    UniformInt.of(0, 1),
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_ORE)
+                            .mapColor(MapColor.DEEPSLATE)
+                            .strength(4.5F, 3.0F)
+                            .sound(SoundType.DEEPSLATE)
+            )
+    );
+
+    public static final RegistryObject<Block> END_STONE_ALEXANDRITE_ORE = registerBlock(
+            "end_stone_alexandrite_ore",
+            () -> new DropExperienceBlock(
+                    UniformInt.of(0, 1),
+                    BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.SAND)
+                            .instrument(NoteBlockInstrument.BASEDRUM)
+                            .requiresCorrectToolForDrops()
+                            .strength(3.0F, 9.0F)
+            )
+    );
+
+    public static final RegistryObject<Block> NETHER_ALEXANDRITE_ORE = registerBlock(
+            "nether_alexandrite_ore",
+            () -> new DropExperienceBlock(
+                    UniformInt.of(0, 1),
+                    BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.NETHER)
+                            .instrument(NoteBlockInstrument.BASEDRUM)
+                            .requiresCorrectToolForDrops()
+                            .strength(3.0F, 9.0F)
+                            .sound(SoundType.NETHER_ORE)
+            )
+    );
+
     public static final RegistryObject<Block> RAW_ALEXANDRITE_BLOCK = registerBlock(
             "raw_alexandrite_block",
             () -> new Block(
@@ -43,18 +91,6 @@ public class ModBlocks {
                             .instrument(NoteBlockInstrument.BASEDRUM)
                             .requiresCorrectToolForDrops()
                             .strength(5.0F, 6.0F)
-            )
-    );
-
-    public static final RegistryObject<Block> ALEXANDRITE_ORE = registerBlock(
-            "alexandrite_ore",
-            () -> new DropExperienceBlock(
-                    ConstantInt.of(0),
-                    BlockBehaviour.Properties.of()
-                            .mapColor(MapColor.STONE)
-                            .instrument(NoteBlockInstrument.BASEDRUM)
-                            .requiresCorrectToolForDrops()
-                            .strength(3.0F, 3.0F)
             )
     );
 
