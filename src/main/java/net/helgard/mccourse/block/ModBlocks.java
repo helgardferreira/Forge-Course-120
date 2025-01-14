@@ -38,7 +38,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> ALEXANDRITE_ORE = registerBlock(
             "alexandrite_ore",
             () -> new DropExperienceBlock(
-                    UniformInt.of(0, 1),
+                    UniformInt.of(3, 7),
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.STONE)
                             .instrument(NoteBlockInstrument.BASEDRUM)
@@ -50,7 +50,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> DEEPSLATE_ALEXANDRITE_ORE = registerBlock(
             "deepslate_alexandrite_ore",
             () -> new DropExperienceBlock(
-                    UniformInt.of(0, 1),
+                    UniformInt.of(3, 7),
                     BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_ORE)
                             .mapColor(MapColor.DEEPSLATE)
                             .strength(4.5F, 3.0F)
@@ -61,7 +61,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> END_STONE_ALEXANDRITE_ORE = registerBlock(
             "end_stone_alexandrite_ore",
             () -> new DropExperienceBlock(
-                    UniformInt.of(0, 1),
+                    UniformInt.of(3, 7),
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.SAND)
                             .instrument(NoteBlockInstrument.BASEDRUM)
@@ -73,7 +73,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> NETHER_ALEXANDRITE_ORE = registerBlock(
             "nether_alexandrite_ore",
             () -> new DropExperienceBlock(
-                    UniformInt.of(0, 1),
+                    UniformInt.of(3, 7),
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.NETHER)
                             .instrument(NoteBlockInstrument.BASEDRUM)
