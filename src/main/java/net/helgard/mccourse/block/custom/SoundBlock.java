@@ -4,7 +4,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -21,14 +20,14 @@ public class SoundBlock extends Block {
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(
-            ItemStack itemStack,
-            BlockState blockState,
+    protected @NotNull ItemInteractionResult useItemOn(
+            @NotNull ItemStack itemStack,
+            @NotNull BlockState blockState,
             Level level,
-            BlockPos blockPos,
-            Player player,
-            InteractionHand interactionHand,
-            BlockHitResult blockHitResult
+            @NotNull BlockPos blockPos,
+            @NotNull Player player,
+            @NotNull InteractionHand interactionHand,
+            @NotNull BlockHitResult blockHitResult
     ) {
         if (!level.isClientSide() && interactionHand == InteractionHand.MAIN_HAND) {
             if (player.isCrouching()) {
@@ -40,8 +39,6 @@ public class SoundBlock extends Block {
                         1f,
                         1f
                 );
-
-                return ItemInteractionResult.SUCCESS;
             } else {
                 level.playSound(
                         null,
@@ -51,16 +48,14 @@ public class SoundBlock extends Block {
                         1f,
                         1f
                 );
-
-                return ItemInteractionResult.SUCCESS;
             }
         }
 
-        return super.useItemOn(itemStack, blockState, level, blockPos, player, interactionHand, blockHitResult);
+        return ItemInteractionResult.SUCCESS;
     }
 
     @Override
-    public void stepOn(Level level, BlockPos blockPos, BlockState blockState, Entity entity) {
+    public void stepOn(Level level, @NotNull BlockPos blockPos, @NotNull BlockState blockState, @NotNull Entity entity) {
         level.playSound(
                 entity,
                 blockPos,
