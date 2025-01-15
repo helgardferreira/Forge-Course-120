@@ -74,6 +74,10 @@ public class MCCourseMod {
         if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
             event.accept(ModItems.KOHLRABI);
         }
+
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.PEAT_BRICK);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
