@@ -28,6 +28,7 @@ public class ModCreativeModeTabs {
                                 output.accept(ModBlocks.END_STONE_ALEXANDRITE_ORE.get());
                                 output.accept(ModBlocks.NETHER_ALEXANDRITE_ORE.get());
                                 output.accept(ModBlocks.RAW_ALEXANDRITE_BLOCK.get());
+                                output.accept(ModBlocks.SOUND_BLOCK.get());
                                 output.accept(ModItems.ALEXANDRITE.get());
                                 output.accept(ModItems.METAL_DETECTOR.get());
                                 output.accept(ModItems.RAW_ALEXANDRITE.get());
