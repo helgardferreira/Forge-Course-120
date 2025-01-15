@@ -1,5 +1,6 @@
 package net.helgard.mccourse.item.custom;
 
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -8,11 +9,14 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 public class MetalDetectorItem extends Item {
     public MetalDetectorItem(Properties properties) {
@@ -51,6 +55,22 @@ public class MetalDetectorItem extends Item {
         }
 
         return InteractionResult.SUCCESS;
+    }
+
+    @Override
+    public void appendHoverText(
+            @NotNull ItemStack itemStack,
+            @NotNull TooltipContext tooltipContext,
+            @NotNull List<Component> tooltipComponents,
+            @NotNull TooltipFlag tooltipFlag
+    ) {
+        if (Screen.hasShiftDown()) {
+            tooltipComponents.add(Component.translatable("tooltip.mccourse.metal_detector.tooltip.shift"));
+        } else {
+            tooltipComponents.add(Component.translatable("tooltip.mccourse.metal_detector.tooltip"));
+        }
+
+        super.appendHoverText(itemStack, tooltipContext, tooltipComponents, tooltipFlag);
     }
 
     private void outputNoValuableFound(Player player) {

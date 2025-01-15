@@ -12,5 +12,8 @@
   "item.mccourse.metal_detector": "Metal Detector",
   "item.mccourse.metal_detector.no_valuables": "No Valuables Found",
   "item.mccourse.peat_brick": "Peat Brick",
-  "item.mccourse.raw_alexandrite": "Raw Alexandrite"
+  "item.mccourse.raw_alexandrite": "Raw Alexandrite",
+  "tooltip.mccourse.metal_detector.tooltip": "Press §eSHIFT§r for more Information",
+  "tooltip.mccourse.metal_detector.tooltip.shift": "Right Click on Blocks to find Valuables.",
+  "tooltip.mccourse.sound_block": "Plays sounds when walking or right clicking."
 }
