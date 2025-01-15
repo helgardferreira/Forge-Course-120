@@ -1,5 +1,6 @@
 package net.helgard.mccourse.item.custom;
 
+import net.helgard.mccourse.util.ModTags;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
@@ -77,26 +78,23 @@ public class MetalDetectorItem extends Item {
         player.sendSystemMessage(Component.translatable("item.mccourse.metal_detector.no_valuables"));
     }
 
-    private void outputValuableCoordinates(BlockPos below, Player player, Block block) {
+    private void outputValuableCoordinates(BlockPos blockPos, Player player, Block block) {
         player.sendSystemMessage(
                 Component.literal(
                         "Valuable Found: "
                                 + I18n.get(block.getDescriptionId())
                                 + " at ("
-                                + below.getX()
+                                + blockPos.getX()
                                 + ", "
-                                + below.getY()
+                                + blockPos.getY()
                                 + ", "
-                                + below.getZ()
+                                + blockPos.getZ()
                                 + ")"
                 )
         );
     }
 
-    // TODO: implement multiple valuable blocks using tags
     private boolean isValuableBlock(BlockState blockState) {
-        return blockState.is(Blocks.IRON_ORE)
-                || blockState.is(Blocks.DEEPSLATE_IRON_ORE)
-                || blockState.is(Blocks.DIAMOND_ORE);
+        return blockState.is(ModTags.Blocks.METAL_DETECTOR_VALUABLES);
     }
 }
