@@ -77,6 +77,47 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ModBlocks.ALEXANDRITE_STAIRS.get(),
                 ModItems.ALEXANDRITE.get()
         );
+
+        customButton(
+                recipeOutput,
+                RecipeCategory.REDSTONE,
+                ModBlocks.ALEXANDRITE_BUTTON.get(),
+                ModItems.ALEXANDRITE.get()
+        );
+
+        customPressurePlate(
+                recipeOutput,
+                RecipeCategory.REDSTONE,
+                ModBlocks.ALEXANDRITE_PRESSURE_PLATE.get(),
+                ModItems.ALEXANDRITE.get()
+        );
+    }
+
+    protected static void customPressurePlate(
+            RecipeOutput recipeOutput,
+            RecipeCategory recipeCategory,
+            ItemLike pressurePlate,
+            ItemLike material
+    ) {
+        ShapedRecipeBuilder
+                .shaped(recipeCategory, pressurePlate)
+                .define('#', material)
+                .pattern("##")
+                .unlockedBy(getHasName(material), has(material))
+                .save(recipeOutput);
+    }
+
+    private static void customButton(
+            RecipeOutput recipeOutput,
+            RecipeCategory recipeCategory,
+            ItemLike button,
+            ItemLike material
+    ) {
+        ShapelessRecipeBuilder
+                .shapeless(recipeCategory, button)
+                .requires(material)
+                .unlockedBy(getHasName(material), has(material))
+                .save(recipeOutput);
     }
 
     private static void customStairs(

@@ -8,6 +8,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -112,6 +113,27 @@ public class ModBlocks {
             () -> new SlabBlock(
                     BlockBehaviour.Properties
                             .ofFullCopy((Blocks.GRANITE_SLAB))
+                            .sound(SoundType.METAL)
+            )
+    );
+
+    public static final RegistryObject<Block> ALEXANDRITE_PRESSURE_PLATE = registerBlock(
+            "alexandrite_pressure_plate",
+            () -> new PressurePlateBlock(
+                    BlockSetType.IRON,
+                    BlockBehaviour.Properties
+                            .ofFullCopy(Blocks.STONE_PRESSURE_PLATE)
+                            .sound(SoundType.METAL)
+            )
+    );
+
+    public static final RegistryObject<Block> ALEXANDRITE_BUTTON = registerBlock(
+            "alexandrite_button",
+            () -> new ButtonBlock(
+                    BlockSetType.IRON,
+                    10,
+                    BlockBehaviour.Properties
+                            .ofFullCopy(Blocks.STONE_BUTTON)
                             .sound(SoundType.METAL)
             )
     );

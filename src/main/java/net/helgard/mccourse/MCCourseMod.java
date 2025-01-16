@@ -80,6 +80,11 @@ public class MCCourseMod {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.PEAT_BRICK);
         }
+
+        if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
+            event.accept(ModBlocks.ALEXANDRITE_BUTTON.get());
+            event.accept(ModBlocks.ALEXANDRITE_PRESSURE_PLATE.get());
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
