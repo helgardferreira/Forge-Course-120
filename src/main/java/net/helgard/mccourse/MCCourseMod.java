@@ -53,6 +53,8 @@ public class MCCourseMod {
 
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
             event.accept(ModBlocks.ALEXANDRITE_BLOCK);
+            event.accept(ModBlocks.ALEXANDRITE_SLAB);
+            event.accept(ModBlocks.ALEXANDRITE_STAIRS);
         }
 
         if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {

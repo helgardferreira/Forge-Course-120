@@ -1,5 +1,5 @@
-// 1.20.6	2025-01-16T02:24:32.8322484	Block Tags
+// 1.20.6	2025-01-16T18:56:03.8526414	Block Tags
 29e9077c48ca77bf13dc95dba84ac8a98d864309 data/mccourse/tags/blocks/metal_detector_valuables.json
 25e466cd1ba914d4e24cb0f54cc06b3299fbfd55 data/minecraft/tags/blocks/mineable/axe.json
-1cca9b474862ee4e50aaca0ed2612a3294859798 data/minecraft/tags/blocks/mineable/pickaxe.json
-e90669f9d2b9ca2f47b98c9e12bd3855151e7c51 data/minecraft/tags/blocks/needs_iron_tool.json
+fb1310c1ee8f01549c1479d66ddcd93a082ef946 data/minecraft/tags/blocks/mineable/pickaxe.json
+08bf6d4e347436404843792962169b266d481751 data/minecraft/tags/blocks/needs_iron_tool.json

@@ -25,6 +25,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     @Override
     protected void generate() {
         this.dropSelf(ModBlocks.ALEXANDRITE_BLOCK.get());
+        this.dropSelf(ModBlocks.ALEXANDRITE_STAIRS.get());
         this.dropSelf(ModBlocks.RAW_ALEXANDRITE_BLOCK.get());
         this.dropSelf(ModBlocks.SOUND_BLOCK.get());
 
@@ -63,6 +64,11 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                         2.0f,
                         4.0f
                 )
+        );
+
+        this.add(
+                ModBlocks.ALEXANDRITE_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.ALEXANDRITE_SLAB.get())
         );
     }
 

@@ -6,10 +6,7 @@ import net.helgard.mccourse.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DropExperienceBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
@@ -98,6 +95,25 @@ public class ModBlocks {
     public static final RegistryObject<Block> SOUND_BLOCK = registerBlock(
             "sound_block",
             () -> new SoundBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK))
+    );
+
+    public static final RegistryObject<Block> ALEXANDRITE_STAIRS = registerBlock(
+            "alexandrite_stairs",
+            () -> new StairBlock(
+                    ModBlocks.ALEXANDRITE_BLOCK.get().defaultBlockState(),
+                    BlockBehaviour.Properties
+                            .ofFullCopy((Blocks.GRANITE_STAIRS))
+                            .sound(SoundType.METAL)
+            )
+    );
+
+    public static final RegistryObject<Block> ALEXANDRITE_SLAB = registerBlock(
+            "alexandrite_slab",
+            () -> new SlabBlock(
+                    BlockBehaviour.Properties
+                            .ofFullCopy((Blocks.GRANITE_SLAB))
+                            .sound(SoundType.METAL)
+            )
     );
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

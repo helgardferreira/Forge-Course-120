@@ -27,37 +27,25 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         super(packOutput, lookupProvider);
     }
 
+
     @Override
     protected void buildRecipes(@NotNull RecipeOutput recipeOutput) {
-        ShapedRecipeBuilder
-                .shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ALEXANDRITE_BLOCK.get())
-                .pattern("###")
-                .pattern("###")
-                .pattern("###")
-                .define('#', ModItems.ALEXANDRITE.get())
-                .unlockedBy("has_alexandrite", has(ModItems.ALEXANDRITE.get()))
-                .save(recipeOutput);
-        ShapelessRecipeBuilder
-                .shapeless(RecipeCategory.MISC, ModItems.ALEXANDRITE.get(), 9)
-                .requires(ModBlocks.ALEXANDRITE_BLOCK.get())
-                .unlockedBy("has_alexandrite_block", has(ModBlocks.ALEXANDRITE_BLOCK.get()))
-                .save(recipeOutput);
+        customNineBlockStorageRecipes(
+                recipeOutput,
+                RecipeCategory.MISC,
+                ModItems.ALEXANDRITE.get(),
+                RecipeCategory.BUILDING_BLOCKS,
+                ModBlocks.ALEXANDRITE_BLOCK.get()
+        );
+        customNineBlockStorageRecipes(
+                recipeOutput,
+                RecipeCategory.MISC,
+                ModItems.RAW_ALEXANDRITE.get(),
+                RecipeCategory.BUILDING_BLOCKS,
+                ModBlocks.RAW_ALEXANDRITE_BLOCK.get()
+        );
 
-        ShapedRecipeBuilder
-                .shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.RAW_ALEXANDRITE_BLOCK.get())
-                .pattern("###")
-                .pattern("###")
-                .pattern("###")
-                .define('#', ModItems.RAW_ALEXANDRITE.get())
-                .unlockedBy("has_raw_alexandrite", has(ModItems.RAW_ALEXANDRITE.get()))
-                .save(recipeOutput);
-        ShapelessRecipeBuilder
-                .shapeless(RecipeCategory.MISC, ModItems.RAW_ALEXANDRITE.get(), 9)
-                .requires(ModBlocks.RAW_ALEXANDRITE_BLOCK.get())
-                .unlockedBy("has_raw_alexandrite_block", has(ModBlocks.RAW_ALEXANDRITE_BLOCK.get()))
-                .save(recipeOutput);
-
-        oreSmelting(
+        customOreSmelting(
                 recipeOutput,
                 ALEXANDRITE_SMELTABLES,
                 RecipeCategory.MISC,
@@ -66,8 +54,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 200,
                 "alexandrite"
         );
-
-        oreBlasting(
+        customOreBlasting(
                 recipeOutput,
                 ALEXANDRITE_SMELTABLES,
                 RecipeCategory.MISC,
@@ -76,9 +63,75 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 100,
                 "alexandrite"
         );
+
+        customSlab(
+                recipeOutput,
+                RecipeCategory.BUILDING_BLOCKS,
+                ModBlocks.ALEXANDRITE_SLAB.get(),
+                ModItems.ALEXANDRITE.get()
+        );
+
+        customStairs(
+                recipeOutput,
+                RecipeCategory.BUILDING_BLOCKS,
+                ModBlocks.ALEXANDRITE_STAIRS.get(),
+                ModItems.ALEXANDRITE.get()
+        );
     }
 
-    protected static void oreSmelting(
+    private static void customStairs(
+            RecipeOutput recipeOutput,
+            RecipeCategory recipeCategory,
+            ItemLike stairs,
+            ItemLike material
+    ) {
+        ShapedRecipeBuilder
+                .shaped(recipeCategory, stairs, 4)
+                .define('#', material)
+                .pattern("#  ")
+                .pattern("## ")
+                .pattern("###")
+                .unlockedBy(getHasName(material), has(material))
+                .save(recipeOutput);
+    }
+
+    private static void customSlab(
+            RecipeOutput recipeOutput,
+            RecipeCategory recipeCategory,
+            ItemLike slab,
+            ItemLike material
+    ) {
+        ShapedRecipeBuilder
+                .shaped(recipeCategory, slab, 6)
+                .define('#', material)
+                .pattern("###")
+                .unlockedBy(getHasName(material), has(material))
+                .save(recipeOutput);
+    }
+
+    private static void customNineBlockStorageRecipes(
+            RecipeOutput recipeOutput,
+            RecipeCategory unpackedCategory,
+            ItemLike unpacked,
+            RecipeCategory packedCategory,
+            ItemLike packed
+    ) {
+        ShapedRecipeBuilder
+                .shaped(packedCategory, packed)
+                .pattern("###")
+                .pattern("###")
+                .pattern("###")
+                .define('#', unpacked)
+                .unlockedBy(getHasName(unpacked), has(unpacked))
+                .save(recipeOutput);
+        ShapelessRecipeBuilder
+                .shapeless(unpackedCategory, unpacked, 9)
+                .requires(packed)
+                .unlockedBy(getHasName(packed), has(packed))
+                .save(recipeOutput);
+    }
+
+    private static void customOreSmelting(
             @NotNull RecipeOutput recipeOutput,
             List<ItemLike> ingredients,
             @NotNull RecipeCategory recipeCategory,
@@ -87,7 +140,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             int cookingTime,
             @NotNull String group
     ) {
-        oreCooking(
+        customOreCooking(
                 recipeOutput,
                 RecipeSerializer.SMELTING_RECIPE,
                 SmeltingRecipe::new,
@@ -101,7 +154,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         );
     }
 
-    protected static void oreBlasting(
+    private static void customOreBlasting(
             @NotNull RecipeOutput recipeOutput,
             List<ItemLike> ingredients,
             @NotNull RecipeCategory recipeCategory,
@@ -110,7 +163,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             int cookingTime,
             @NotNull String group
     ) {
-        oreCooking(
+        customOreCooking(
                 recipeOutput,
                 RecipeSerializer.BLASTING_RECIPE,
                 BlastingRecipe::new,
@@ -123,7 +176,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 "_from_blasting");
     }
 
-    private static <T extends AbstractCookingRecipe> void oreCooking(
+    private static <T extends AbstractCookingRecipe> void customOreCooking(
             RecipeOutput recipeOutput,
             RecipeSerializer<T> recipeSerializer,
             AbstractCookingRecipe.Factory<T> recipeFactory,
