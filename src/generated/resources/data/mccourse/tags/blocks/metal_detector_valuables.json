@@ -1,6 +1,20 @@
 {
   "values": [
     "mccourse:alexandrite_ore",
-    "#forge:ores"
+    "mccourse:deepslate_alexandrite_ore",
+    "mccourse:end_stone_alexandrite_ore",
+    "mccourse:nether_alexandrite_ore",
+    "mccourse:raw_alexandrite_block",
+    "#forge:ores",
+    "#forge:ores/netherite_scrap",
+    "#forge:storage_blocks/coal",
+    "#forge:storage_blocks/emerald",
+    "#forge:storage_blocks/lapis",
+    "#forge:storage_blocks/netherite",
+    "#forge:storage_blocks/quartz",
+    "#forge:storage_blocks/raw_copper",
+    "#forge:storage_blocks/raw_gold",
+    "#forge:storage_blocks/raw_iron",
+    "#forge:storage_blocks/redstone"
   ]
 }
