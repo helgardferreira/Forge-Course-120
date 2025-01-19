@@ -27,6 +27,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.PEAT_BRICK);
         simpleItem(ModItems.RAW_ALEXANDRITE);
 
+        handheldItem(ModItems.ALEXANDRITE_AXE);
+        handheldItem(ModItems.ALEXANDRITE_HOE);
+        handheldItem(ModItems.ALEXANDRITE_PICKAXE);
+        handheldItem(ModItems.ALEXANDRITE_SHOVEL);
+        handheldItem(ModItems.ALEXANDRITE_SWORD);
+
         buttonItem(ModBlocks.ALEXANDRITE_BUTTON, ModBlocks.ALEXANDRITE_BLOCK);
 
         fenceItem(ModBlocks.ALEXANDRITE_FENCE, ModBlocks.ALEXANDRITE_BLOCK);
@@ -69,6 +75,19 @@ public class ModItemModelProvider extends ItemModelProvider {
                 new ResourceLocation(
                         MCCourseMod.MOD_ID,
                         "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()
+                )
+        );
+    }
+
+    private ItemModelBuilder handheldItem(RegistryObject<Item> item) {
+        return withExistingParent(
+                item.getId().getPath(),
+                new ResourceLocation("item/handheld")
+        ).texture(
+                "layer0",
+                new ResourceLocation(
+                        MCCourseMod.MOD_ID,
+                        "item/" + item.getId().getPath()
                 )
         );
     }

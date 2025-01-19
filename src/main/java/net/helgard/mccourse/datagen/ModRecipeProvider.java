@@ -6,11 +6,9 @@ import net.helgard.mccourse.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
 
@@ -129,6 +127,109 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ModBlocks.ALEXANDRITE_TRAPDOOR.get(),
                 ModItems.ALEXANDRITE.get()
         );
+
+        customAxe(
+                recipeOutput,
+                ModItems.ALEXANDRITE_AXE.get(),
+                ModItems.ALEXANDRITE.get()
+        );
+        customHoe(
+                recipeOutput,
+                ModItems.ALEXANDRITE_HOE.get(),
+                ModItems.ALEXANDRITE.get()
+        );
+        customPickaxe(
+                recipeOutput,
+                ModItems.ALEXANDRITE_PICKAXE.get(),
+                ModItems.ALEXANDRITE.get()
+        );
+        customShovel(
+                recipeOutput,
+                ModItems.ALEXANDRITE_SHOVEL.get(),
+                ModItems.ALEXANDRITE.get()
+        );
+        customSword(
+                recipeOutput,
+                ModItems.ALEXANDRITE_SWORD.get(),
+                ModItems.ALEXANDRITE.get()
+        );
+    }
+
+    private static void customAxe(
+            RecipeOutput recipeOutput,
+            ItemLike axe,
+            ItemLike material
+    ) {
+        ShapedRecipeBuilder
+                .shaped(RecipeCategory.TOOLS, axe)
+                .define('#', Items.STICK)
+                .define('X', material)
+                .pattern("XX")
+                .pattern("X#")
+                .pattern(" #")
+                .unlockedBy(getHasName(material), has(material))
+                .save(recipeOutput);
+    }
+
+    private static void customHoe(
+            RecipeOutput recipeOutput,
+            ItemLike hoe,
+            ItemLike material
+    ) {
+        ShapedRecipeBuilder
+                .shaped(RecipeCategory.TOOLS, hoe)
+                .define('#', Items.STICK)
+                .define('X', material)
+                .pattern("XX")
+                .pattern(" #")
+                .pattern(" #")
+                .unlockedBy(getHasName(material), has(material))
+                .save(recipeOutput);
+    }
+
+    private static void customPickaxe(
+            RecipeOutput recipeOutput,
+            ItemLike pickaxe,
+            ItemLike material
+    ) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, pickaxe)
+                .define('#', Items.STICK)
+                .define('X', material)
+                .pattern("XXX")
+                .pattern(" # ")
+                .pattern(" # ")
+                .unlockedBy(getHasName(material), has(material))
+                .save(recipeOutput);
+    }
+
+    private static void customShovel(
+            RecipeOutput recipeOutput,
+            ItemLike shovel,
+            ItemLike material
+    ) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, shovel)
+                .define('#', Items.STICK)
+                .define('X', material)
+                .pattern(" X ")
+                .pattern(" # ")
+                .pattern(" # ")
+                .unlockedBy(getHasName(material), has(material))
+                .save(recipeOutput);
+    }
+
+    private static void customSword(
+            RecipeOutput recipeOutput,
+            ItemLike sword,
+            ItemLike material
+    ) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, sword)
+                .define('#', Items.STICK)
+                .define('X', material)
+                .pattern("X")
+                .pattern("X")
+                .pattern("#")
+                .unlockedBy(getHasName(material), has(material))
+                .save(recipeOutput);
     }
 
     private static void customTrapdoor(

@@ -71,7 +71,15 @@ public class MCCourseMod {
         }
 
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(ModItems.ALEXANDRITE_AXE);
+            event.accept(ModItems.ALEXANDRITE_HOE);
+            event.accept(ModItems.ALEXANDRITE_PICKAXE);
+            event.accept(ModItems.ALEXANDRITE_SHOVEL);
             event.accept(ModItems.METAL_DETECTOR);
+        }
+
+        if (event.getTabKey() == CreativeModeTabs.COMBAT) {
+            event.accept(ModItems.ALEXANDRITE_SWORD);
         }
 
         if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
