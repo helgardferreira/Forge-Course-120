@@ -21,13 +21,42 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         simpleItem(ModItems.ALEXANDRITE);
-        simpleItem(ModItems.RAW_ALEXANDRITE);
-
         simpleItem(ModItems.KOHLRABI);
         simpleItem(ModItems.METAL_DETECTOR);
         simpleItem(ModItems.PEAT_BRICK);
+        simpleItem(ModItems.RAW_ALEXANDRITE);
 
         buttonItem(ModBlocks.ALEXANDRITE_BUTTON, ModBlocks.ALEXANDRITE_BLOCK);
+
+        fenceItem(ModBlocks.ALEXANDRITE_FENCE, ModBlocks.ALEXANDRITE_BLOCK);
+
+        wallItem(ModBlocks.ALEXANDRITE_WALL, ModBlocks.ALEXANDRITE_BLOCK);
+    }
+
+    public void fenceItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
+        this.withExistingParent(
+                ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
+                new ResourceLocation("block/fence_inventory")
+        ).texture(
+                "texture",
+                new ResourceLocation(
+                        MCCourseMod.MOD_ID,
+                        "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()
+                )
+        );
+    }
+
+    public void wallItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
+        this.withExistingParent(
+                ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
+                new ResourceLocation("block/wall_inventory")
+        ).texture(
+                "wall",
+                new ResourceLocation(
+                        MCCourseMod.MOD_ID,
+                        "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()
+                )
+        );
     }
 
     public void buttonItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {

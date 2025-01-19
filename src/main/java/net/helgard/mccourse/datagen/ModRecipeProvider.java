@@ -6,8 +6,11 @@ import net.helgard.mccourse.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
 
@@ -91,6 +94,75 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ModBlocks.ALEXANDRITE_PRESSURE_PLATE.get(),
                 ModItems.ALEXANDRITE.get()
         );
+
+        customFence(
+                recipeOutput,
+                RecipeCategory.DECORATIONS,
+                ModBlocks.ALEXANDRITE_FENCE.get(),
+                ModItems.ALEXANDRITE.get()
+        );
+
+        customFenceGate(
+                recipeOutput,
+                RecipeCategory.REDSTONE,
+                ModBlocks.ALEXANDRITE_FENCE_GATE.get(),
+                ModItems.ALEXANDRITE.get()
+        );
+
+        customWall(
+                recipeOutput,
+                RecipeCategory.BUILDING_BLOCKS,
+                ModBlocks.ALEXANDRITE_WALL.get(),
+                ModItems.ALEXANDRITE.get()
+        );
+    }
+
+    protected static void customWall(
+            RecipeOutput recipeOutput,
+            RecipeCategory recipeCategory,
+            ItemLike wall,
+            ItemLike material
+    ) {
+        ShapedRecipeBuilder
+                .shaped(recipeCategory, wall, 6)
+                .define('#', material)
+                .pattern("###")
+                .pattern("###")
+                .unlockedBy(getHasName(material), has(material))
+                .save(recipeOutput)
+        ;
+    }
+
+    protected static void customFenceGate(
+            RecipeOutput recipeOutput,
+            RecipeCategory recipeCategory,
+            ItemLike fenceGate,
+            ItemLike material
+    ) {
+        ShapedRecipeBuilder
+                .shaped(recipeCategory, fenceGate)
+                .define('#', Items.STICK)
+                .define('W', material)
+                .pattern("#W#")
+                .pattern("#W#")
+                .unlockedBy(getHasName(material), has(material))
+                .save(recipeOutput);
+    }
+
+    protected static void customFence(
+            RecipeOutput recipeOutput,
+            RecipeCategory recipeCategory,
+            ItemLike fence,
+            ItemLike material
+    ) {
+        ShapedRecipeBuilder
+                .shaped(recipeCategory, fence, 3)
+                .define('W', material)
+                .define('#', Items.STICK)
+                .pattern("W#W")
+                .pattern("W#W")
+                .unlockedBy(getHasName(material), has(material))
+                .save(recipeOutput);
     }
 
     protected static void customPressurePlate(
