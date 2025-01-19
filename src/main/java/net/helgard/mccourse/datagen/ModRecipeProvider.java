@@ -113,11 +113,57 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 recipeOutput,
                 RecipeCategory.BUILDING_BLOCKS,
                 ModBlocks.ALEXANDRITE_WALL.get(),
+                ModBlocks.ALEXANDRITE_BLOCK.get()
+        );
+
+        customDoor(
+                recipeOutput,
+                RecipeCategory.REDSTONE,
+                ModBlocks.ALEXANDRITE_DOOR.get(),
+                ModItems.ALEXANDRITE.get()
+        );
+
+        customTrapdoor(
+                recipeOutput,
+                RecipeCategory.REDSTONE,
+                ModBlocks.ALEXANDRITE_TRAPDOOR.get(),
                 ModItems.ALEXANDRITE.get()
         );
     }
 
-    protected static void customWall(
+    private static void customTrapdoor(
+            RecipeOutput recipeOutput,
+            RecipeCategory recipeCategory,
+            ItemLike trapdoor,
+            ItemLike material
+    ) {
+        ShapedRecipeBuilder
+                .shaped(recipeCategory, trapdoor, 2)
+                .define('#', material)
+                .pattern("###")
+                .pattern("###")
+                .unlockedBy(getHasName(material), has(material))
+                .save(recipeOutput);
+    }
+
+    private static void customDoor(
+            RecipeOutput recipeOutput,
+            RecipeCategory recipeCategory,
+            ItemLike door,
+            ItemLike material
+    ) {
+        ShapedRecipeBuilder
+                .shaped(recipeCategory, door, 3)
+                .define('#', material)
+                .pattern("##")
+                .pattern("##")
+                .pattern("##")
+                .unlockedBy(getHasName(material), has(material))
+                .save(recipeOutput);
+    }
+
+
+    private static void customWall(
             RecipeOutput recipeOutput,
             RecipeCategory recipeCategory,
             ItemLike wall,
@@ -133,7 +179,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ;
     }
 
-    protected static void customFenceGate(
+    private static void customFenceGate(
             RecipeOutput recipeOutput,
             RecipeCategory recipeCategory,
             ItemLike fenceGate,
@@ -149,7 +195,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(recipeOutput);
     }
 
-    protected static void customFence(
+    private static void customFence(
             RecipeOutput recipeOutput,
             RecipeCategory recipeCategory,
             ItemLike fence,
@@ -165,7 +211,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(recipeOutput);
     }
 
-    protected static void customPressurePlate(
+    private static void customPressurePlate(
             RecipeOutput recipeOutput,
             RecipeCategory recipeCategory,
             ItemLike pressurePlate,

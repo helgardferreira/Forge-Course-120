@@ -146,6 +146,7 @@ public class ModBlocks {
                     BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)
             )
     );
+
     public static final RegistryObject<Block> ALEXANDRITE_FENCE_GATE = registerBlock(
             "alexandrite_fence_gate",
             () -> new FenceGateBlock(
@@ -155,10 +156,31 @@ public class ModBlocks {
                     SoundEvents.FENCE_GATE_CLOSE
             )
     );
+
     public static final RegistryObject<Block> ALEXANDRITE_WALL = registerBlock(
             "alexandrite_wall",
             () -> new WallBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)
+            )
+    );
+
+    public static final RegistryObject<Block> ALEXANDRITE_DOOR = registerBlock(
+            "alexandrite_door",
+            () -> new DoorBlock(
+                    BlockSetType.IRON,
+                    BlockBehaviour.Properties
+                            .ofFullCopy(Blocks.IRON_BLOCK)
+                            .noOcclusion()
+            )
+    );
+
+    public static final RegistryObject<Block> ALEXANDRITE_TRAPDOOR = registerBlock(
+            "alexandrite_trapdoor",
+            () -> new TrapDoorBlock(
+                    BlockSetType.IRON,
+                    BlockBehaviour.Properties
+                            .ofFullCopy(Blocks.IRON_BLOCK)
+                            .noOcclusion()
             )
     );
 

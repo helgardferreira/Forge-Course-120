@@ -20,6 +20,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+        simpleBlockItem(ModBlocks.ALEXANDRITE_DOOR);
         simpleItem(ModItems.ALEXANDRITE);
         simpleItem(ModItems.KOHLRABI);
         simpleItem(ModItems.METAL_DETECTOR);
@@ -68,6 +69,19 @@ public class ModItemModelProvider extends ItemModelProvider {
                 new ResourceLocation(
                         MCCourseMod.MOD_ID,
                         "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()
+                )
+        );
+    }
+
+    private ItemModelBuilder simpleBlockItem(RegistryObject<Block> item) {
+        return withExistingParent(
+                item.getId().getPath(),
+                new ResourceLocation("item/generated")
+        ).texture(
+                "layer0",
+                new ResourceLocation(
+                        MCCourseMod.MOD_ID,
+                        "item/" + item.getId().getPath()
                 )
         );
     }

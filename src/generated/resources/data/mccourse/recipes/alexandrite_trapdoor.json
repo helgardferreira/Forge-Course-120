@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "building",
+  "category": "redstone",
   "key": {
     "#": {
-      "item": "mccourse:alexandrite_block"
+      "item": "mccourse:alexandrite"
     }
   },
   "pattern": [
@@ -11,7 +11,7 @@
     "###"
   ],
   "result": {
-    "count": 6,
-    "id": "mccourse:alexandrite_wall"
+    "count": 2,
+    "id": "mccourse:alexandrite_trapdoor"
   }
 }

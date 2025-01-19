@@ -3,6 +3,7 @@ package net.helgard.mccourse.datagen;
 import net.helgard.mccourse.MCCourseMod;
 import net.helgard.mccourse.block.ModBlocks;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -63,6 +64,33 @@ public class ModBlockStateProvider extends BlockStateProvider {
         wallBlock(
                 (WallBlock) ModBlocks.ALEXANDRITE_WALL.get(),
                 blockTexture(ModBlocks.ALEXANDRITE_BLOCK.get())
+        );
+
+        doorBlockWithRenderType(
+                (DoorBlock) ModBlocks.ALEXANDRITE_DOOR.get(),
+                new ResourceLocation(MCCourseMod.MOD_ID, "block/alexandrite_door_bottom"),
+                new ResourceLocation(MCCourseMod.MOD_ID, "block/alexandrite_door_top"),
+                "cutout"
+        );
+
+        trapdoorBlockWithRenderType(
+                (TrapDoorBlock) ModBlocks.ALEXANDRITE_TRAPDOOR.get(),
+                new ResourceLocation(MCCourseMod.MOD_ID, "block/alexandrite_trapdoor"),
+                true,
+                "cutout"
+        );
+        blockItem(ModBlocks.ALEXANDRITE_TRAPDOOR, "_bottom");
+    }
+
+    private void blockItem(RegistryObject<Block> blockRegistryObject, String appendix) {
+        simpleBlockItem(
+                blockRegistryObject.get(),
+                new ModelFile.UncheckedModelFile(
+                        "mccourse:block/" + ForgeRegistries.BLOCKS
+                                .getKey(blockRegistryObject.get())
+                                .getPath() +
+                                appendix
+                )
         );
     }
 

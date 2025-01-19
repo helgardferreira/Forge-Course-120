@@ -53,10 +53,12 @@ public class MCCourseMod {
 
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
             event.accept(ModBlocks.ALEXANDRITE_BLOCK);
+            event.accept(ModBlocks.ALEXANDRITE_DOOR);
             event.accept(ModBlocks.ALEXANDRITE_FENCE);
             event.accept(ModBlocks.ALEXANDRITE_FENCE_GATE);
             event.accept(ModBlocks.ALEXANDRITE_SLAB);
             event.accept(ModBlocks.ALEXANDRITE_STAIRS);
+            event.accept(ModBlocks.ALEXANDRITE_TRAPDOOR);
             event.accept(ModBlocks.ALEXANDRITE_WALL);
         }
 
@@ -86,7 +88,10 @@ public class MCCourseMod {
 
         if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
             event.accept(ModBlocks.ALEXANDRITE_BUTTON.get());
+            event.accept(ModBlocks.ALEXANDRITE_DOOR);
+            event.accept(ModBlocks.ALEXANDRITE_FENCE_GATE);
             event.accept(ModBlocks.ALEXANDRITE_PRESSURE_PLATE.get());
+            event.accept(ModBlocks.ALEXANDRITE_TRAPDOOR);
         }
     }
 
