@@ -83,6 +83,14 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.NETHER_ALEXANDRITE_ORE.get())
                 .add(ModBlocks.RAW_ALEXANDRITE_BLOCK.get());
 
+        //noinspection unchecked
+        this.tag(ModTags.Blocks.PAXEL_MINEABLE)
+                .addTags(
+                        BlockTags.MINEABLE_WITH_PICKAXE,
+                        BlockTags.MINEABLE_WITH_AXE,
+                        BlockTags.MINEABLE_WITH_SHOVEL
+                );
+
         this.tag(BlockTags.FENCES)
                 .add(ModBlocks.ALEXANDRITE_FENCE.get());
         this.tag(BlockTags.FENCE_GATES)

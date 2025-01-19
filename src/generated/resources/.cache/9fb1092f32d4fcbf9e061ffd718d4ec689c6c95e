@@ -1,4 +1,4 @@
-// 1.20.6	2025-01-19T15:52:40.0127757	Recipes
+// 1.20.6	2025-01-19T16:31:49.1371775	Recipes
 3fc4e89363efc6083c5566b950270a3fc8f1025d data/mccourse/advancements/recipes/building_blocks/alexandrite_block.json
 b3f37002101797860271698850568031f1d7de82 data/mccourse/advancements/recipes/building_blocks/alexandrite_slab.json
 85a8e758f74d301ffe616d21392fc0579e755ddc data/mccourse/advancements/recipes/building_blocks/alexandrite_stairs.json
@@ -25,6 +25,7 @@ e34111ad65f9e88aa6276b754091e3e25a00886e data/mccourse/advancements/recipes/reds
 024337213fea6c07b5171db9774f4f07bb221e8f data/mccourse/advancements/recipes/redstone/alexandrite_trapdoor.json
 9635872964e43930c77754a95dfd45201d71e9ae data/mccourse/advancements/recipes/tools/alexandrite_axe.json
 8bf9ec5db487171d4aeefb45fd706b828158b099 data/mccourse/advancements/recipes/tools/alexandrite_hoe.json
+107597e1a0ad57de8a7b06677e02b24f0626e204 data/mccourse/advancements/recipes/tools/alexandrite_paxel.json
 ad23f39c46000016972366f530885d5e6aac7a01 data/mccourse/advancements/recipes/tools/alexandrite_pickaxe.json
 83d64f148b05141de653f641bfd843e2356ac8e6 data/mccourse/advancements/recipes/tools/alexandrite_shovel.json
 84d5b3a1ad2c3021df40e1b9bbd0c6ad5dfd1c93 data/mccourse/recipes/alexandrite.json
@@ -45,6 +46,7 @@ f137ced5a7909b0f2f9724967ada2d850b07aa62 data/mccourse/recipes/alexandrite_from_
 065d81199d6cba91328b35ccbb43fb81067303d5 data/mccourse/recipes/alexandrite_from_smelting_nether_alexandrite_ore.json
 512193ffbf9300ff52c7198f3712f88bfdd6a226 data/mccourse/recipes/alexandrite_from_smelting_raw_alexandrite.json
 7a06468c0dba52f8f5ca70c0da9ea54b98d92ccf data/mccourse/recipes/alexandrite_hoe.json
+be59c0fd663f19863776717789d9fbb9f51e1bd8 data/mccourse/recipes/alexandrite_paxel.json
 85493a19a38613819f961078e69a45ba0d7c885e data/mccourse/recipes/alexandrite_pickaxe.json
 369d0caf3e34ea9dce6a4b754107ac4bb43aaa53 data/mccourse/recipes/alexandrite_pressure_plate.json
 986bb0e7d9ec1a4385f294f5273ecf7b566e0f8e data/mccourse/recipes/alexandrite_shovel.json

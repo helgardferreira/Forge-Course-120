@@ -74,6 +74,7 @@ public class MCCourseMod {
             event.accept(ModItems.ALEXANDRITE_AXE);
             event.accept(ModItems.ALEXANDRITE_HOE);
             event.accept(ModItems.ALEXANDRITE_PICKAXE);
+            event.accept(ModItems.ALEXANDRITE_PAXEL);
             event.accept(ModItems.ALEXANDRITE_SHOVEL);
             event.accept(ModItems.METAL_DETECTOR);
         }

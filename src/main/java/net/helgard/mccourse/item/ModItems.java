@@ -3,6 +3,7 @@ package net.helgard.mccourse.item;
 import net.helgard.mccourse.MCCourseMod;
 import net.helgard.mccourse.item.custom.FuelItem;
 import net.helgard.mccourse.item.custom.MetalDetectorItem;
+import net.helgard.mccourse.item.custom.PaxelItem;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -89,6 +90,17 @@ public class ModItems {
                             .fireResistant()
                             .attributes(
                                     HoeItem.createAttributes(Tiers.NETHERITE, -4.0F, 0.0F)
+                            )
+            )
+    );
+    public static final RegistryObject<Item> ALEXANDRITE_PAXEL = ITEMS.register(
+            "alexandrite_paxel",
+            () -> new PaxelItem(
+                    Tiers.NETHERITE,
+                    new Item.Properties()
+                            .fireResistant()
+                            .attributes(
+                                    PaxelItem.createAttributes(Tiers.NETHERITE, 5.0F, -2.4F)
                             )
             )
     );

@@ -143,6 +143,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ModItems.ALEXANDRITE_PICKAXE.get(),
                 ModItems.ALEXANDRITE.get()
         );
+        paxel(
+                recipeOutput,
+                ModItems.ALEXANDRITE_PAXEL.get(),
+                ModItems.ALEXANDRITE.get()
+        );
         customShovel(
                 recipeOutput,
                 ModItems.ALEXANDRITE_SHOVEL.get(),
@@ -183,6 +188,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("XX")
                 .pattern(" #")
                 .pattern(" #")
+                .unlockedBy(getHasName(material), has(material))
+                .save(recipeOutput);
+    }
+
+    private static void paxel(
+            RecipeOutput recipeOutput,
+            ItemLike pickaxe,
+            ItemLike material
+    ) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, pickaxe)
+                .define('#', Items.STICK)
+                .define('X', material)
+                .pattern("XXX")
+                .pattern("X# ")
+                .pattern(" # ")
                 .unlockedBy(getHasName(material), has(material))
                 .save(recipeOutput);
     }
